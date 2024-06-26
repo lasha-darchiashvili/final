@@ -12,11 +12,10 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <div className="flex flex-col justify-between font-nunito">
-     
-     <Header/>
+    <div className="flex flex-col min-h-screen justify-between font-nunito">
+      <Header />
       {children}
-     <Footer/>
+      <Footer />
     </div>
   );
 }

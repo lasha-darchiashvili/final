@@ -22,6 +22,8 @@ module.exports = {
         "custom-second-blue": "#1C2B39",
         "custom-logo-color": "#999999",
         "custom-orange": "#FF4E00",
+        "border-color": "#E2E2E2",
+        "contact-gray": "#F7F7F7",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],

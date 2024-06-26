@@ -15,20 +15,22 @@ const Blogs: React.FC = () => {
 
   //   const { t } = useTranslation();
 
+  const getBlogs = async () => {
+    try {
+      const response = await fetch("/api/get-blogs");
+      if (!response.ok) {
+        throw new Error("Failed to fetch blogs");
+      }
+      const data = await response.json();
+      console.log(data);
+      setBlogsData(data.bloggs.rows);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = () => {
-      fetch("https://dummyjson.com/posts")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setBlogsData(data.posts);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchData();
+    getBlogs();
   }, []);
 
   console.log(blogsData);
@@ -37,15 +39,15 @@ const Blogs: React.FC = () => {
     <div className="flex items-center flex-col text-custom-white mt-[4rem] gap-[4rem]">
       <p className="text-custom-white text-[2.4rem]">asd</p>
       <div className="w-[120rem] flex flex-col gap-[5rem] items-center">
-        {blogsData.map((game: Blog) => (
+        {blogsData.map((blog: Blog) => (
           <SingleBlog
-            key={game.id}
-            id={`${game.id}`}
-            title={game.title}
+            key={blog?.id}
+            id={`${blog?.id}`}
+            title={blog?.title}
             img={
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5wqYg5tmJjCZ9S7O_JngEKzZ-szwnL5DhzQ&s"
             }
-            text={game.body}
+            text={blog?.body}
             createDate={"09-09-2020"}
           />
         ))}

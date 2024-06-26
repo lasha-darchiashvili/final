@@ -1,7 +1,7 @@
 import React from "react";
 // import { useTranslation } from "react-i18next";
 
-interface blog {
+interface Blog {
   title: string;
   img: string;
   text: string;
@@ -9,30 +9,35 @@ interface blog {
   createDate: string;
 }
 
-const SingleBlog: React.FC<blog> = ({ title, img, text, id }) => {
+const SingleBlog: React.FC<Blog> = ({ title, img, text, id, createDate }) => {
   //   const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-[2rem] items-center w-full text-black mb-[5rem]">
-      <div className="flex flex-row gap-[2rem]">
-        <div className="w-3/5">
-          <img className="w-full" src={img} alt="witcher_photo" />
-        </div>
-        <div className="w-2/5 flex flex-col gap-[2rem]">
-          <p className="text-[1.8rem]">{title}</p>
-          <p className="text-[1.4rem]">{text}</p>
-          <p className="text-[1.4rem]">{text}</p>
-          <div className="flex mt-auto">
-            <p className="ml-auto">
-              {" "}
-              <i>09-09-2020</i>
-            </p>
-          </div>
-        </div>
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row md:w-3/4 mx-auto my-5">
+      <div className="md:w-2/5">
+        <img
+          className="object-cover w-full h-64 md:h-auto"
+          src={img}
+          alt="Blog Image"
+        />
       </div>
-      <div className="flex gap-[2rem] items-center">
-        <p className="text-[1.4rem] font-semibold text-custom-graysh">
-          <a href={`/blogs/${id}`}>Find more</a>
-        </p>
+      <div className="p-6 flex flex-col md:w-3/5">
+        <h2 className="text-2xl font-bold mb-4 text-black">{title}</h2>
+        <p className="text-lg text-gray-700 mb-4">{text}</p>
+        <div className="mt-auto">
+          <p className="text-sm text-gray-600">
+            <i>{createDate}</i>
+          </p>
+        </div>
+        <div className="mt-4">
+          <p className="text-base font-semibold text-custom-graysh">
+            <a
+              href={`/blogs/${id}`}
+              className="text-blue-600 hover:text-blue-700"
+            >
+              Read more
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

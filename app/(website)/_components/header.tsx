@@ -5,8 +5,10 @@ import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 import HeaderButton from "./headerButton";
 
-export default function header() {
+export default function Header() {
   const { t, i18n: translation } = useTranslation();
+  console.log(i18n.language);
+  console.log(translation.language);
 
   if (!i18n.language) {
     i18n.changeLanguage("en");
@@ -29,9 +31,9 @@ export default function header() {
           <span className="text-[1.2rem]">Call 123456789</span>
         </p>
       </div>
-      <div className="flex flex-col items-center">
-        <div className="border-b border-b-slate-400 w-[60rem] flex items-center">
-          <p className="text-[10rem] mx-auto ">GOGGLES</p>
+      <div className="flex flex-col gap-[2rem] items-center">
+        <div className="border-b border-b-slate-400 w-[70rem] flex items-center">
+          <p className="text-[10rem] mx-auto ">ROCK STORE</p>
         </div>
 
         <div className="mt-[1rem] text-[2rem] text-custom-gray flex items-center justify-center gap-[3em] ">
@@ -56,7 +58,7 @@ export default function header() {
         </div>
         <div className="flex gap-[1rem]">
           <button
-            className="py-2 px-4 bg-gray-500 text-white rounded-md hover:bg-gray-700 focus:outline-none"
+            className="py-2 px-4 border-gray-700 border rounded-md  focus:outline-none h-full ml-[1rem]"
             onClick={handleChangeLanguage}
           >
             {t("languageAfterChange")}

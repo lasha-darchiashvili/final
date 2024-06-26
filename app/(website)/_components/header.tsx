@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function header() {
   return (
     <div className="flex justify-between mt-[2rem] items-center">
-      <div className=" text-custom-gray w-[15rem] flex flex-col gap-[1rem] ml-[2rem]">
+      <div className=" text-custom-gray w-[15rem] flex flex-col gap-[1rem] ml-[3rem]">
         <p className="text-[2rem]">Need Help</p>
         <p className="flex gap-[2rem]">
           <img className="w-[2rem]" src="assets/phone.svg" alt="" />
@@ -24,7 +24,7 @@ export default function header() {
           <Link href="/contact">Contact</Link>
         </div>
       </div>
-      <div className="flex justify-center items-center mr-[2rem]">
+      <div className="flex justify-center items-center mr-[3rem]">
         <div className="text-custom-gray flex items-center gap-[2rem]">
           <img
             className="w-[3rem] h-[3rem]"

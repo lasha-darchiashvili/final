@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import Blogs from "./components/blogs";
 
-export default function page() {
+const BlogsPage: React.FC = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="grow">
+      <Blogs />
+    </div>
+  );
+};
+
+export default BlogsPage;

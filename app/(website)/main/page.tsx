@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
-export default function page() {
+export default function Page() {
   const { t, i18n: translation } = useTranslation();
   return (
     <div className="mt-[3rem] relative text-white">

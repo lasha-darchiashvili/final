@@ -1,7 +1,25 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n";
+import HeaderButton from "./headerButton";
 
 export default function header() {
+  const { t, i18n: translation } = useTranslation();
+
+  if (!i18n.language) {
+    i18n.changeLanguage("en");
+  }
+
+  const handleChangeLanguage = () => {
+    if (i18n.language === "en") {
+      i18n.changeLanguage("ge");
+    } else {
+      i18n.changeLanguage("en");
+    }
+  };
+
   return (
     <div className="flex justify-between mt-[2rem] items-center">
       <div className=" text-custom-gray w-[15rem] flex flex-col gap-[1rem] ml-[3rem]">
@@ -28,13 +46,21 @@ export default function header() {
         <div className="text-custom-gray flex items-center gap-[2rem]">
           <img
             className="w-[3rem] h-[3rem]"
-            src="assets/profilelogo.svg"
+            src="/assets/profilelogo.svg"
             alt=""
           />
           <div className="border border-gray-700 p-[1rem] flex gap-[2rem]">
             <p className="text-[1.6rem] my-auto">My Cart</p>
-            <img className="w-[3rem] h-[3rem]" src="assets/cart.svg" alt="" />
+            <img className="w-[3rem] h-[3rem]" src="/assets/cart.svg" alt="" />
           </div>
+        </div>
+        <div className="flex gap-[1rem]">
+          <button
+            className="py-2 px-4 bg-gray-500 text-white rounded-md hover:bg-gray-700 focus:outline-none"
+            onClick={handleChangeLanguage}
+          >
+            {t("languageAfterChange")}
+          </button>
         </div>
       </div>
     </div>
